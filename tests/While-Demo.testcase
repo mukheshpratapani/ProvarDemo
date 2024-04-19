@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase guid="2679e61f-b482-4499-9206-ef7f43a4d4e1" id="15" registryId="2679e61f-b482-4499-9206-ef7f43a4d4e1">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" guid="197118bc-a65a-41ea-bfa4-d5b1ac810f22" name="ApexConnect" testItemId="1" title="Salesforce Connect: GRID_QA (Test)">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">GRID_QA</value>
+        </argument>
+        <argument id="connectionId">
+          <value class="value" valueClass="id">0d952817-f00e-4884-ad36-3b0fff55f747</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">GRID_QA</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="uiApplicationName">
+          <value class="value" valueClass="string">Grid</value>
+        </argument>
+        <argument id="quickUiLogin">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="closeAllPrimaryTabs">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="reuseConnectionName"/>
+        <argument id="alreadyOpenBehaviour">
+          <value class="value" valueClass="string">Fail</value>
+        </argument>
+        <argument id="privateBrowsingMode"/>
+        <argument id="enableObjectIdLogging">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="autoCleanup"/>
+        <argument id="cleanupConnectionName"/>
+        <argument id="logFileLocation"/>
+        <argument id="username"/>
+        <argument id="password"/>
+        <argument id="securityToken"/>
+        <argument id="environment"/>
+        <argument id="lightningMode">
+          <value class="value" valueClass="string">default</value>
+        </argument>
+        <argument id="webBrowser"/>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" guid="a8a509ad-cdc1-4206-b3c6-74bc98369b56" name="StepGroup" testItemId="85" title="Get Row Count from List View">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Get Row Count from List View</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="86">
+          <steps>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="ce646d65-fa8e-4dbf-9913-13d561e18b2b" name="UiWithScreen" testItemId="78" title="On SF Contact Recordtype list view">
+              <arguments>
+                <argument id="uiConnectionName">
+                  <value class="value" valueClass="string">GRID_QA</value>
+                </argument>
+                <argument id="target">
+                  <value class="uiTarget" uri="sf:ui:target?listView=Recordtype&amp;object=Contact&amp;action=List"/>
+                </argument>
+                <argument id="navigate">
+                  <value class="value" valueClass="string">Always</value>
+                </argument>
+                <argument id="targetDescription">
+                  <value class="value" valueClass="string">On SF Contact Recordtype list view</value>
+                </argument>
+                <argument id="windowSelection">
+                  <value class="value" valueClass="string">Default</value>
+                </argument>
+                <argument id="windowSize">
+                  <value class="value" valueClass="string">Default</value>
+                </argument>
+                <argument id="closeWindow"/>
+                <argument id="captureBefore">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+                <argument id="captureAfter">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="substeps" testItemId="79">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" guid="19d06067-f932-4bf8-bc80-23c4209390fb" isTitleUpdated="true" name="UiAssert" testItemId="84" title="Get Row Count">
+                      <arguments>
+                        <argument id="fieldAssertions">
+                          <value class="valueList" mutable="Mutable">
+                            <uiFieldAssertion resultName="listView">
+                              <fieldLocator uri="ui:locator?name=listView&amp;path=List"/>
+                              <attributeAssertions>
+                                <uiAttributeAssertion attributeName="totalRowCount" comparisonType="None"/>
+                              </attributeAssertions>
+                            </uiFieldAssertion>
+                          </value>
+                        </argument>
+                        <argument id="columnAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="pageAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="resultName">
+                          <value class="value" valueClass="string">TotalRowCount</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="beforeWait"/>
+                        <argument id="autoRetry"/>
+                      </arguments>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" guid="c87e6290-8240-43c6-b280-7dc56273f3c8" name="StepGroup" testItemId="90" title="Check each row status">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Check each row status</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="91">
+          <steps>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="720a39b9-afe0-4c12-9c3b-37759a7d540b" name="UiWithScreen" testItemId="2" title="On MyPageObject1 page">
+              <arguments>
+                <argument id="uiConnectionName">
+                  <value class="value" valueClass="string">GRID_QA</value>
+                </argument>
+                <argument id="target">
+                  <value class="uiTarget" uri="ui:pageobject:target?pageId=pageobjects.MyPageObject1"/>
+                </argument>
+                <argument id="targetDescription">
+                  <value class="value" valueClass="string">On MyPageObject1 page</value>
+                </argument>
+                <argument id="navigate">
+                  <value class="value" valueClass="string">Always</value>
+                </argument>
+                <argument id="windowSelection">
+                  <value class="value" valueClass="string">Default</value>
+                </argument>
+                <argument id="windowSize">
+                  <value class="value" valueClass="string">Maximize</value>
+                </argument>
+                <argument id="closeWindow"/>
+                <argument id="captureBefore">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+                <argument id="captureAfter">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+                <argument id="uiTargetUrl"/>
+              </arguments>
+              <clauses>
+                <clause name="substeps" testItemId="3">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithRow" guid="27afc9ad-a508-40b9-ba95-a290dd8b8ae7" name="UiWithRow" testItemId="37" title="With items row">
+                      <tags>
+                        <string>disabled</string>
+                      </tags>
+                      <arguments>
+                        <argument id="uiConnectionName">
+                          <value class="value" valueClass="string">GRID_QA</value>
+                        </argument>
+                        <argument id="locator">
+                          <value class="uiLocator" uri="ui:pageobject:row?field=items&amp;pageId=pageobjects.MyPageObject1"/>
+                        </argument>
+                        <argument id="uiRowLocator">
+                          <value class="value" valueClass="decimal">1</value>
+                        </argument>
+                        <argument id="locatorDescription">
+                          <value class="value" valueClass="string">With items row</value>
+                        </argument>
+                        <argument id="failIfNotFound">
+                          <value class="value" valueClass="boolean">true</value>
+                        </argument>
+                        <argument id="debugRowLocator">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="resultName">
+                          <value class="value" valueClass="string">Row</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Local</value>
+                        </argument>
+                        <argument id="autoRetry">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                      </arguments>
+                      <clauses>
+                        <clause name="substeps" testItemId="38">
+                          <steps>
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" guid="bcf1d9fc-61e3-4b0c-8016-442cca5e4d05" isTitleUpdated="true" name="UiAssert" testItemId="40" title="Read Contact Status Value">
+                              <arguments>
+                                <argument id="fieldAssertions">
+                                  <value class="valueList" mutable="Mutable">
+                                    <uiFieldAssertion resultName="Contact_Status">
+                                      <fieldLocator uri="ui:pageobject:field?field=Contact_Status&amp;pageId=pageobjects.MyPageObject1"/>
+                                      <attributeAssertions>
+                                        <uiAttributeAssertion attributeName="value" caseInsensitive="true" comparisonType="EqualTo">
+                                          <value class="value" valueClass="string">Active</value>
+                                        </uiAttributeAssertion>
+                                      </attributeAssertions>
+                                    </uiFieldAssertion>
+                                  </value>
+                                </argument>
+                                <argument id="columnAssertions">
+                                  <value class="valueList" mutable="Mutable"/>
+                                </argument>
+                                <argument id="pageAssertions">
+                                  <value class="valueList" mutable="Mutable"/>
+                                </argument>
+                                <argument id="resultName">
+                                  <value class="value" valueClass="string">CS</value>
+                                </argument>
+                                <argument id="resultScope">
+                                  <value class="value" valueClass="string">Test</value>
+                                </argument>
+                                <argument id="captureAfter">
+                                  <value class="value" valueClass="string">false</value>
+                                </argument>
+                                <argument id="beforeWait"/>
+                                <argument id="autoRetry"/>
+                              </arguments>
+                            </apiCall>
+                          </steps>
+                        </clause>
+                      </clauses>
+                      <generatedParameters>
+                        <apiParam group="options" name="autoRetry" title="Auto Retry">
+                          <summary>Whether to wait for the rows to be visible.</summary>
+                          <type>
+                            <booleanType/>
+                          </type>
+                        </apiParam>
+                      </generatedParameters>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="0dc8b67f-a370-41a4-bda5-e19f9c3a7f8f" name="SetValues" testItemId="5" title="Set Values: count">
+                      <arguments>
+                        <argument id="values">
+                          <value class="valueList" mutable="Mutable">
+                            <namedValues mutable="Mutable">
+                              <namedValue name="valuePath">
+                                <value class="value" valueClass="string">count</value>
+                              </namedValue>
+                              <namedValue name="value">
+                                <value class="value" valueClass="string">1</value>
+                              </namedValue>
+                              <namedValue name="valueScope">
+                                <value class="value" valueClass="string">Test</value>
+                              </namedValue>
+                            </namedValues>
+                          </value>
+                        </argument>
+                      </arguments>
+                      <parameterValueSources/>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.DoWhile" guid="f8233071-f310-4846-b7e9-2ca472326f1b" name="DoWhile" testItemId="6" title="While: {count &lt; TotalRowCount.fields.listView.totalRowCount}">
+                      <arguments>
+                        <argument id="condition">
+                          <value class="lt">
+                            <lhs class="variable">
+                              <path element="count"/>
+                            </lhs>
+                            <rhs class="variable">
+                              <path element="TotalRowCount"/>
+                              <path element="fields"/>
+                              <path element="listView"/>
+                              <path element="totalRowCount"/>
+                            </rhs>
+                          </value>
+                        </argument>
+                        <argument id="counterName">
+                          <value class="value" valueClass="string">LoopCounter</value>
+                        </argument>
+                        <argument id="counterStart">
+                          <value class="value" valueClass="decimal">1</value>
+                        </argument>
+                        <argument id="counterEnd"/>
+                        <argument id="continueOnFailure"/>
+                      </arguments>
+                      <clauses>
+                        <clause name="substeps" testItemId="64">
+                          <steps>
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithRow" guid="22bb3d31-36c7-4a82-b1b9-ac37fca64586" name="UiWithRow" testItemId="65" title="With items row">
+                              <arguments>
+                                <argument id="uiConnectionName">
+                                  <value class="value" valueClass="string">GRID_QA</value>
+                                </argument>
+                                <argument id="locator">
+                                  <value class="uiLocator" uri="ui:pageobject:row?field=items&amp;pageId=pageobjects.MyPageObject1"/>
+                                </argument>
+                                <argument id="uiRowLocator">
+                                  <value class="variable" topLevel="true">
+                                    <path element="count"/>
+                                  </value>
+                                </argument>
+                                <argument id="locatorDescription">
+                                  <value class="value" valueClass="string">With items row</value>
+                                </argument>
+                                <argument id="failIfNotFound">
+                                  <value class="value" valueClass="boolean">true</value>
+                                </argument>
+                                <argument id="debugRowLocator">
+                                  <value class="value" valueClass="boolean">true</value>
+                                </argument>
+                                <argument id="resultName">
+                                  <value class="value" valueClass="string">Row</value>
+                                </argument>
+                                <argument id="resultScope">
+                                  <value class="value" valueClass="string">Local</value>
+                                </argument>
+                                <argument id="autoRetry">
+                                  <value class="value" valueClass="boolean">true</value>
+                                </argument>
+                              </arguments>
+                              <clauses>
+                                <clause name="substeps" testItemId="66">
+                                  <steps>
+                                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" guid="e2d15310-2d37-468b-b3fd-28ac0f829f3e" isTitleUpdated="true" name="UiAssert" testItemId="67" title="To read the Contact record Type">
+                                      <arguments>
+                                        <argument id="fieldAssertions">
+                                          <value class="valueList" mutable="Mutable">
+                                            <uiFieldAssertion resultName="Contact_RecordType">
+                                              <fieldLocator uri="ui:pageobject:field?field=Contact_RecordType&amp;pageId=pageobjects.MyPageObject1"/>
+                                              <attributeAssertions>
+                                                <uiAttributeAssertion attributeName="value" comparisonType="None"/>
+                                              </attributeAssertions>
+                                            </uiFieldAssertion>
+                                          </value>
+                                        </argument>
+                                        <argument id="columnAssertions">
+                                          <value class="valueList" mutable="Mutable"/>
+                                        </argument>
+                                        <argument id="pageAssertions">
+                                          <value class="valueList" mutable="Mutable"/>
+                                        </argument>
+                                        <argument id="resultName">
+                                          <value class="value" valueClass="string">CRT</value>
+                                        </argument>
+                                        <argument id="resultScope">
+                                          <value class="value" valueClass="string">Test</value>
+                                        </argument>
+                                        <argument id="captureAfter">
+                                          <value class="value" valueClass="string">false</value>
+                                        </argument>
+                                        <argument id="beforeWait"/>
+                                        <argument id="autoRetry"/>
+                                      </arguments>
+                                    </apiCall>
+                                    <apiCall apiId="com.provar.plugins.bundled.apis.If" guid="bc464541-a00f-4d0d-aa1c-e637f3351945" name="If" testItemId="68" title="If: {CRT.fields.Contact_RecordType.value = &quot;Resource&quot;}">
+                                      <arguments>
+                                        <argument id="condition">
+                                          <value class="eq">
+                                            <lhs class="variable">
+                                              <path element="CRT"/>
+                                              <path element="fields"/>
+                                              <path element="Contact_RecordType"/>
+                                              <path element="value"/>
+                                            </lhs>
+                                            <rhs class="value" valueClass="string">Resource</rhs>
+                                          </value>
+                                        </argument>
+                                      </arguments>
+                                      <clauses>
+                                        <clause name="then" testItemId="69">
+                                          <steps>
+                                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" guid="8c2f6986-a585-4fec-a184-3b3210cfd564" isTitleUpdated="true" name="UiAssert" testItemId="70" title="Check Status is Active">
+                                              <arguments>
+                                                <argument id="fieldAssertions">
+                                                  <value class="valueList" mutable="Mutable">
+                                                    <uiFieldAssertion resultName="Contact_Status">
+                                                      <fieldLocator uri="ui:pageobject:field?field=Contact_Status&amp;pageId=pageobjects.MyPageObject1"/>
+                                                      <attributeAssertions>
+                                                        <uiAttributeAssertion attributeName="value" comparisonType="EqualTo">
+                                                          <value class="value" valueClass="string">Active</value>
+                                                        </uiAttributeAssertion>
+                                                      </attributeAssertions>
+                                                    </uiFieldAssertion>
+                                                  </value>
+                                                </argument>
+                                                <argument id="columnAssertions">
+                                                  <value class="valueList" mutable="Mutable"/>
+                                                </argument>
+                                                <argument id="pageAssertions">
+                                                  <value class="valueList" mutable="Mutable"/>
+                                                </argument>
+                                                <argument id="resultName">
+                                                  <value class="value" valueClass="string">CS1</value>
+                                                </argument>
+                                                <argument id="resultScope">
+                                                  <value class="value" valueClass="string">Test</value>
+                                                </argument>
+                                                <argument id="captureAfter">
+                                                  <value class="value" valueClass="string">false</value>
+                                                </argument>
+                                                <argument id="beforeWait"/>
+                                                <argument id="autoRetry"/>
+                                              </arguments>
+                                            </apiCall>
+                                          </steps>
+                                        </clause>
+                                        <clause name="else" testItemId="71">
+                                          <steps>
+                                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" guid="460005d1-f8f4-43b3-bb68-3fe33a139cc9" isTitleUpdated="true" name="UiAssert" testItemId="72" title="Check Status is Blank">
+                                              <arguments>
+                                                <argument id="fieldAssertions">
+                                                  <value class="valueList" mutable="Mutable">
+                                                    <uiFieldAssertion resultName="Contact_Status">
+                                                      <fieldLocator uri="ui:pageobject:field?field=Contact_Status&amp;pageId=pageobjects.MyPageObject1"/>
+                                                      <attributeAssertions>
+                                                        <uiAttributeAssertion attributeName="value" comparisonType="EqualTo"/>
+                                                      </attributeAssertions>
+                                                    </uiFieldAssertion>
+                                                  </value>
+                                                </argument>
+                                                <argument id="columnAssertions">
+                                                  <value class="valueList" mutable="Mutable"/>
+                                                </argument>
+                                                <argument id="pageAssertions">
+                                                  <value class="valueList" mutable="Mutable"/>
+                                                </argument>
+                                                <argument id="resultName">
+                                                  <value class="value" valueClass="string">CS2</value>
+                                                </argument>
+                                                <argument id="resultScope">
+                                                  <value class="value" valueClass="string">Test</value>
+                                                </argument>
+                                                <argument id="captureAfter">
+                                                  <value class="value" valueClass="string">false</value>
+                                                </argument>
+                                                <argument id="beforeWait"/>
+                                                <argument id="autoRetry"/>
+                                              </arguments>
+                                            </apiCall>
+                                          </steps>
+                                        </clause>
+                                      </clauses>
+                                    </apiCall>
+                                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="2b717f46-6091-47b7-b634-191891e73f7a" name="SetValues" testItemId="73" title="Set Values: count">
+                                      <arguments>
+                                        <argument id="values">
+                                          <value class="valueList" mutable="Mutable">
+                                            <namedValues mutable="Mutable">
+                                              <namedValue name="valuePath">
+                                                <value class="value" valueClass="string">count</value>
+                                              </namedValue>
+                                              <namedValue name="value">
+                                                <value class="add">
+                                                  <lhs class="variable">
+                                                    <path element="count"/>
+                                                  </lhs>
+                                                  <rhs class="value" valueClass="decimal">1</rhs>
+                                                </value>
+                                              </namedValue>
+                                              <namedValue name="valueScope">
+                                                <value class="value" valueClass="string">Test</value>
+                                              </namedValue>
+                                            </namedValues>
+                                          </value>
+                                        </argument>
+                                      </arguments>
+                                    </apiCall>
+                                  </steps>
+                                </clause>
+                              </clauses>
+                              <generatedParameters>
+                                <apiParam group="options" name="autoRetry" title="Auto Retry">
+                                  <summary>Whether to wait for the rows to be visible.</summary>
+                                  <type>
+                                    <booleanType/>
+                                  </type>
+                                </apiParam>
+                              </generatedParameters>
+                            </apiCall>
+                          </steps>
+                        </clause>
+                      </clauses>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+              <generatedParameters>
+                <apiParam group="target" name="uiTargetUrl" title="Web Page">
+                  <type>
+                    <textType/>
+                  </type>
+                </apiParam>
+              </generatedParameters>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+  </steps>
+</testCase>

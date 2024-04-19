@@ -1,0 +1,39 @@
+{
+  "componentId" : "cfb0b107-a65a-4f6d-b42e-8b377f81f588",
+  "name" : "/com/site/my/cpprd/kratable",
+  "tagName" : "c-kratable",
+  "parameters" : [ ],
+  "type" : "Block",
+  "pageStructureElement" : false,
+  "fieldDetailsElement" : false,
+  "elements" : [ {
+    "componentId" : "9e83ef41-3f93-4c3b-889f-5a9aa67bd1ad",
+    "type" : "component::23229240-c74c-407d-97be-9bddb587e0cc",
+    "label" : "LightningCard",
+    "properties" : [ ],
+    "selectors" : [ {
+      "xpath" : "./lightning-card/following-sibling::lightning-card"
+    } ],
+    "elements" : [ {
+      "type" : "content",
+      "elements" : [ {
+        "componentId" : "8b256196-f432-4856-a69c-cc336f9b6558",
+        "type" : "component::8bbe9ece-3ae4-4300-884d-b98b65c0b4f3",
+        "label" : "Description field",
+        "properties" : [ ],
+        "parameters" : [ {
+          "name" : "class",
+          "value" : "slds-form-element",
+          "comparisonType" : "contains",
+          "default" : true
+        }, {
+          "name" : "label",
+          "value" : "Description",
+          "comparisonType" : "equals",
+          "default" : true
+        } ],
+        "elements" : [ ]
+      } ]
+    } ]
+  } ]
+}

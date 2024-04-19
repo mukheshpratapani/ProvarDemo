@@ -1,0 +1,17 @@
+{
+  "componentId" : "027ca930-0c48-4fbc-8434-8d0ade1ea1dd",
+  "name" : "/com/site/my/cpprd/myMetrics",
+  "tagName" : "c-my-metrics",
+  "parameters" : [ ],
+  "type" : "Block",
+  "pageStructureElement" : false,
+  "fieldDetailsElement" : false,
+  "elements" : [ {
+    "componentId" : "f2842392-f2a4-405e-b174-5f071b32c4db",
+    "type" : "component::cfb0b107-a65a-4f6d-b42e-8b377f81f588",
+    "label" : "CKratable",
+    "properties" : [ ],
+    "parameters" : [ ],
+    "elements" : [ ]
+  } ]
+}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="TrialGuide/tests" tests="1" failures="0" skipped="0" hostname="DESKTOP-UOVK8U2" time="167.182" timestamp="Tue Apr 02 18:32:05 IST 2024">
+	<properties>
+		<property name="excludeCallableTestCases" value="true"/>
+		<property name="testEnvironment" value=""/>
+		<property name="pluginOutputLevel" value="WARNING"/>
+		<property name="projectPath" value=".."/>
+		<property name="salesforceMetadataCache" value="Reuse"/>
+		<property name="resultsPathDisposition" value="Increment"/>
+		<property name="testOutputLevel" value="INFO"/>
+		<property name="webBrowserType" value="Chrome"/>
+		<property name="resultsPath" value="../ANT/Results"/>
+		<property name="webBrowserConfiguration" value="1920x1080"/>
+		<property name="projectCachePath" value="C:\Users\CP_LPT-91\Provar\Mukhesh-WS\TrialGuide\ANT\..\..\.provarCaches"/>
+	</properties>
+	<testcase classname="tests/While.testcase" name="While.testcase" time="162.785">
+	</testcase>
+</testsuite>

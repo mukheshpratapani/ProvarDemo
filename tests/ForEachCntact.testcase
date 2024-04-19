@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase guid="5f60362e-8f93-42a9-b1a1-45504713073d" id="26">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" guid="1c2ec518-afc1-4ada-a57f-870b2e57bf00" name="ApexConnect" testItemId="1" title="Salesforce Connect: GRID_QA (Test)">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">GRID_QA</value>
+        </argument>
+        <argument id="connectionId">
+          <value class="value" valueClass="id">0d952817-f00e-4884-ad36-3b0fff55f747</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">GRID_QA</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="uiApplicationName">
+          <value class="value" valueClass="string">Grid</value>
+        </argument>
+        <argument id="quickUiLogin">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="closeAllPrimaryTabs">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="reuseConnectionName"/>
+        <argument id="alreadyOpenBehaviour">
+          <value class="value" valueClass="string">Fail</value>
+        </argument>
+        <argument id="privateBrowsingMode"/>
+        <argument id="enableObjectIdLogging">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="autoCleanup"/>
+        <argument id="cleanupConnectionName"/>
+        <argument id="logFileLocation"/>
+        <argument id="username"/>
+        <argument id="password"/>
+        <argument id="securityToken"/>
+        <argument id="environment"/>
+        <argument id="lightningMode">
+          <value class="value" valueClass="string">default</value>
+        </argument>
+        <argument id="webBrowser"/>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" guid="15496a33-e36e-4267-8650-389659f0d465" name="StepGroup" testItemId="3" title="Test Data">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Test Data</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="4">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="3a326f8f-5f75-4730-9a11-ca946386d651" name="SetValues" testItemId="7" title="Set Values: {}">
+              <arguments>
+                <argument id="values">
+                  <value class="valueList" mutable="Mutable"/>
+                </argument>
+              </arguments>
+              <parameterValueSources>
+                <parameterValueSource variableName="ExcelData" variableScope="Test">
+                  <cacheToken>C:/Users/CP_LPT-91/Provar/Mukhesh-WS/TrialGuide/templates/Contact_ProvarDemo.xlsx;1710442312643</cacheToken>
+                  <cachedParameters>
+                    <apiParam name="LastName"/>
+                    <apiParam name="WorkLocation"/>
+                    <apiParam name="MartialStatus"/>
+                    <apiParam name="AppLauncherSearch"/>
+                    <apiParam name="OfficialEmail"/>
+                    <apiParam name="ResourceRole"/>
+                    <apiParam name="ResourceManager"/>
+                    <apiParam name="Account"/>
+                  </cachedParameters>
+                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+                    <workbookPath class="value" valueClass="string">templates/Contact_ProvarDemo.xlsx</workbookPath>
+                    <worksheetName class="value" valueClass="string">SelfRatings_ASQ</worksheetName>
+                    <valuesRange class="value"/>
+                  </sourceValue>
+                </parameterValueSource>
+              </parameterValueSources>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" guid="acbc4830-b486-4bc4-bd1b-93600e378507" name="ForEach" testItemId="8" title="For Each: {ExcelData}=&gt;Row">
+      <arguments>
+        <argument id="list">
+          <value class="variable">
+            <path element="ExcelData"/>
+          </value>
+        </argument>
+        <argument id="fromItem">
+          <value class="value" valueClass="decimal">1</value>
+        </argument>
+        <argument id="valueName">
+          <value class="value" valueClass="string">Row</value>
+        </argument>
+        <argument id="continueOnFailure"/>
+      </arguments>
+      <clauses>
+        <clause name="substeps" testItemId="9">
+          <steps>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" guid="e078c159-5b05-4b85-93ca-489f7c994e01" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="10" title="Create Object: Contact=&gt;ContactId">
+              <arguments>
+                <argument id="objectType">
+                  <value class="value" valueClass="string">Contact</value>
+                </argument>
+                <argument id="resultIdName">
+                  <value class="value" valueClass="string">ContactId</value>
+                </argument>
+                <argument id="apexConnectionName">
+                  <value class="value" valueClass="string">GRID_QA</value>
+                </argument>
+                <argument id="assignmentRuleId"/>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+                <argument id="LastName">
+                  <value class="compound">
+                    <parts>
+                      <variable>
+                        <path element="ExcelData"/>
+                        <path element="LastName"/>
+                      </variable>
+                      <value valueClass="string">_</value>
+                      <funcCall id="UniqueId">
+                        <argument id="length">
+                          <value class="value" valueClass="decimal">10</value>
+                        </argument>
+                        <argument id="format">
+                          <value class="variable">
+                            <path element="ALPHA"/>
+                          </value>
+                        </argument>
+                      </funcCall>
+                    </parts>
+                  </value>
+                </argument>
+                <argument id="Salutation">
+                  <value class="value" valueClass="string">Mr.</value>
+                </argument>
+                <argument id="Work_Location__c">
+                  <value class="variable">
+                    <path element="ExcelData"/>
+                    <path element="WorkLocation"/>
+                  </value>
+                </argument>
+                <argument id="AccountId">
+                  <value class="variable">
+                    <path element="ExcelData"/>
+                    <path element="Account"/>
+                  </value>
+                </argument>
+                <argument id="Resource_Role__c">
+                  <value class="variable">
+                    <path element="ExcelData"/>
+                    <path element="ResourceRole"/>
+                  </value>
+                </argument>
+                <argument id="Resource_Manager__c">
+                  <value class="variable">
+                    <path element="ExcelData"/>
+                    <path element="ResourceManager"/>
+                  </value>
+                </argument>
+              </arguments>
+              <parameterGeneratorProperties>
+                <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">GRID_QA</propertyValue>
+                <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.CustomObjectName">Contact</propertyValue>
+              </parameterGeneratorProperties>
+              <generatedParameters>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Contact&amp;field=LastName" name="LastName" title="LastName"/>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Contact&amp;field=Salutation" name="Salutation" title="Salutation"/>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Contact&amp;field=Work_Location__c" name="Work_Location__c" title="Work_Location__c"/>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Contact&amp;field=AccountId" name="AccountId" title="AccountId"/>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Contact&amp;field=Resource_Role__c" name="Resource_Role__c" title="Resource_Role__c"/>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Contact&amp;field=Resource_Manager__c" name="Resource_Manager__c" title="Resource_Manager__c"/>
+              </generatedParameters>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+  </steps>
+</testCase>

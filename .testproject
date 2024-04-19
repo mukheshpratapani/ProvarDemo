@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testProject selectedBrowserProviderDeviceName="Full Screen" selectedBrowserProviderName="Desktop" selectedEnvironment="GRID_QA">
+  <title>/TrialGuide/.testproject</title>
+  <configPath>config</configPath>
+  <testsPath>tests</testsPath>
+  <testPlansPath>plans</testPlansPath>
+  <templatesPath>templates</templatesPath>
+  <sourcePath>src</sourcePath>
+  <secureStoragePath>.secrets</secureStoragePath>
+  <browserDebugPort>0</browserDebugPort>
+  <environments>
+    <environment name="SBX1">
+      <summary>Provar Trial Org for testing</summary>
+    </environment>
+    <environment name="ClientOrg">
+      <summary>Your SBX Org</summary>
+    </environment>
+    <environment guid="c72de916-029b-4a01-9239-dac86d30604d" name="GRID_QA">
+      <summary/>
+    </environment>
+    <environment guid="8aea3039-b942-485c-a1d1-7499c68f2740" name="UAT">
+      <summary/>
+    </environment>
+  </environments>
+  <connectionClasses>
+    <connectionClass name="sf">
+      <connections>
+        <connection id="2b84525f-d655-4394-94d8-d49d4770c2b6" name="Admin">
+          <summary>Use this connection to connect to and test the Provar Trial Sandbox Org.</summary>
+          <connectionUrls>
+            <connectionUrl secureStorageNodeId="b0f5da80-7263-4724-be7f-d7b605f5b204" url="sf:environment=PROD_DEV;apiLoginUrl=https://cloud-perituspt1.my.salesforce.com;identityServiceUrl=https://login.salesforce.com/id/00Dal000002EF32EAG/005al000000pJILAA2;clientId={clientId};clientSecret={clientSecret};lightningMode=true;authenticationType=OAUTH;callbackUrl={callbackUrl};accessToken={accessToken};refreshToken={refreshToken}"/>
+            <connectionUrl envName="SBX1" secureStorageNodeId="26f4b11a-762a-4ac0-b178-87a5ba614b75" url="sf:environment=PROD_DEV;apiLoginUrl=https://provartrial.my.salesforce.com;identityServiceUrl=https://login.salesforce.com/id/00D8d000007ZFZREA4/0058d000005VSXHAA4;clientId={clientId};clientSecret={clientSecret};lightningMode=true;authenticationType=OAUTH;callbackUrl={callbackUrl};accessToken={accessToken};refreshToken={refreshToken}"/>
+            <connectionUrl envName="ClientOrg" secureStorageNodeId="3662ed86-6845-4e50-a49f-1aa2673a7d25" url="sf:environment=SANDBOX;apiLoginUrl=https://provar-trial-org--trialsbx1.sandbox.my.salesforce.com;identityServiceUrl=https://test.salesforce.com/id/00D0Q0000008bRiUAI/0051t000000Il0MAAS;clientId={clientId};clientSecret={clientSecret};lightningMode=true;authenticationType=OAUTH;callbackUrl={callbackUrl};accessToken={accessToken};refreshToken={refreshToken}"/>
+          </connectionUrls>
+        </connection>
+        <connection id="0d952817-f00e-4884-ad36-3b0fff55f747" name="GRID_QA">
+          <summary/>
+          <connectionUrls>
+            <connectionUrl secureStorageNodeId="5d6db62b-9862-4ac4-9ac6-07da37f8762f" url="sf:user=mukhesh.pratapani@cloudperitus.com.qa;password={password};securityToken={securityToken};environment=SANDBOX;lightningMode=true"/>
+          </connectionUrls>
+        </connection>
+      </connections>
+    </connectionClass>
+    <connectionClass name="testmanager">
+      <connections>
+        <connection id="31c92433-7959-4a38-8c84-592b78238125" name="PM">
+          <summary/>
+          <connectionUrls>
+            <connectionUrl secureStorageNodeId="b403a6ea-6bfd-4d39-8fee-67c6dc5db682" url="tm:projectName=TrialGuide;projectKey=TRIAL;clientId={clientId};clientSecret={clientSecret};callbackUrl={callbackUrl};environment=PROD_DEV;accessToken={accessToken};refreshToken={refreshToken};apiLoginUrl=https://provartrial.my.salesforce.com;identityServiceUrl=https://login.salesforce.com/id/00D8d000007ZFZREA4/0058d000005VSXHAA4;sendScreenshots=true"/>
+          </connectionUrls>
+        </connection>
+      </connections>
+    </connectionClass>
+    <connectionClass name="google">
+      <connections>
+        <connection id="981409bc-208c-4ff5-8e84-80b7e4cc6617" name="MGmail">
+          <summary/>
+          <connectionUrls>
+            <connectionUrl secureStorageNodeId="1e26b7f4-0bfc-4ee9-b654-88cdf392f9da" url="google:user=mukheshste@gmail.com;password={password};authenticationType=PASSWORD"/>
+          </connectionUrls>
+        </connection>
+      </connections>
+    </connectionClass>
+  </connectionClasses>
+  <browserConfigurations>
+    <browserConfiguration adjustBrowserWidthForChromeIde="true" browserHeight="0" browserWidth="0" name="Full Screen">
+      <summary>Full screen with Test Builder adjustment</summary>
+    </browserConfiguration>
+    <browserConfiguration browserHeight="768" browserHeightType="Pixels" browserWidth="1024" browserWidthType="Pixels" name="1024x768">
+      <summary>Fixed 1024x768</summary>
+    </browserConfiguration>
+    <browserConfiguration browserHeight="800" browserHeightType="Pixels" browserWidth="1280" browserWidthType="Pixels" name="1280x800">
+      <summary>Fixed 1280x800</summary>
+    </browserConfiguration>
+    <browserConfiguration browserHeight="768" browserHeightType="Pixels" browserWidth="1366" browserWidthType="Pixels" name="1366x768">
+      <summary>Fixed 1366x768</summary>
+    </browserConfiguration>
+    <browserConfiguration browserHeight="1080" browserHeightType="Pixels" browserWidth="1920" browserWidthType="Pixels" name="1920x1080">
+      <summary>Fixed 1920x1080</summary>
+    </browserConfiguration>
+  </browserConfigurations>
+  <browserApplications>
+    <browserApplication connectionTypes="sf" name="Salesforce1">
+      <properties>
+        <browserPlatformProperty name="browserName" platform="IOS" type="DesiredCapability" value="Safari"/>
+        <browserPlatformProperty name="browserName" platform="ANDROID" type="DesiredCapability" value="Chrome"/>
+      </properties>
+    </browserApplication>
+    <browserApplication connectionTypes="sf" name="ServiceMax FSA">
+      <properties>
+        <browserPlatformProperty name="bundleId" platform="IOS" type="DesiredCapability" value="com.servicemaxinc.svmxfieldserviceapp"/>
+        <browserPlatformProperty name="app" platform="DESKTOP" type="DesiredCapability" value="C:\\Program Files\\ServiceMax\\ServiceMax Field Service\\Laptop Mobile.exe"/>
+      </properties>
+    </browserApplication>
+  </browserApplications>
+  <browserProviders>
+    <browserProvider name="Desktop" type="SeleniumLocal">
+      <devices>
+        <browserProviderDevice name="Full Screen">
+          <properties>
+            <browserPlatformProperty name="summary" value="Full screen with Test Builder adjustment"/>
+            <browserPlatformProperty name="browserHeightType" value="Full"/>
+            <browserPlatformProperty name="browserWidthType" value="Full"/>
+            <browserPlatformProperty name="adjustBrowserWidthForChromeIde" value="true"/>
+          </properties>
+        </browserProviderDevice>
+        <browserProviderDevice name="1024x768">
+          <properties>
+            <browserPlatformProperty name="summary" value="Fixed 1024x768"/>
+            <browserPlatformProperty name="browserHeightType" value="Pixels"/>
+            <browserPlatformProperty name="browserWidthType" value="Pixels"/>
+            <browserPlatformProperty name="browserHeight" value="768"/>
+            <browserPlatformProperty name="browserWidth" value="1024"/>
+          </properties>
+        </browserProviderDevice>
+        <browserProviderDevice name="1280x800">
+          <properties>
+            <browserPlatformProperty name="summary" value="Fixed 1280x800"/>
+            <browserPlatformProperty name="browserHeightType" value="Pixels"/>
+            <browserPlatformProperty name="browserWidthType" value="Pixels"/>
+            <browserPlatformProperty name="browserHeight" value="800"/>
+            <browserPlatformProperty name="browserWidth" value="1280"/>
+          </properties>
+        </browserProviderDevice>
+        <browserProviderDevice name="1366x768">
+          <properties>
+            <browserPlatformProperty name="summary" value="Fixed 1366x768"/>
+            <browserPlatformProperty name="browserHeightType" value="Pixels"/>
+            <browserPlatformProperty name="browserWidthType" value="Pixels"/>
+            <browserPlatformProperty name="browserHeight" value="768"/>
+            <browserPlatformProperty name="browserWidth" value="1366"/>
+          </properties>
+        </browserProviderDevice>
+        <browserProviderDevice name="1920x1080">
+          <properties>
+            <browserPlatformProperty name="summary" value="Fixed 1920x1080"/>
+            <browserPlatformProperty name="browserHeightType" value="Pixels"/>
+            <browserPlatformProperty name="browserWidthType" value="Pixels"/>
+            <browserPlatformProperty name="browserHeight" value="1080"/>
+            <browserPlatformProperty name="browserWidth" value="1920"/>
+          </properties>
+        </browserProviderDevice>
+      </devices>
+    </browserProvider>
+  </browserProviders>
+  <associations>
+    <association assocationType="TM.TEST_PROJECT" connectionId="31c92433-7959-4a38-8c84-592b78238125" entityKey="a0a8d0000008LRMAA2"/>
+  </associations>
+</testProject>

@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase guid="4869323c-6888-4b12-8716-bff57d0eb23d" id="16">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" guid="b1db9fa7-83b6-45da-975d-a2c10edf2708" name="ApexConnect" testItemId="1" title="Salesforce Connect: GRID_QA (Test)">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">GRID_QA</value>
+        </argument>
+        <argument id="connectionId">
+          <value class="value" valueClass="id">0d952817-f00e-4884-ad36-3b0fff55f747</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">GRID_QA</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="uiApplicationName">
+          <value class="value" valueClass="string">Grid</value>
+        </argument>
+        <argument id="quickUiLogin">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="closeAllPrimaryTabs">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="reuseConnectionName"/>
+        <argument id="alreadyOpenBehaviour">
+          <value class="value" valueClass="string">Fail</value>
+        </argument>
+        <argument id="privateBrowsingMode"/>
+        <argument id="enableObjectIdLogging">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="autoCleanup"/>
+        <argument id="cleanupConnectionName"/>
+        <argument id="logFileLocation"/>
+        <argument id="username"/>
+        <argument id="password"/>
+        <argument id="securityToken"/>
+        <argument id="environment"/>
+        <argument id="lightningMode">
+          <value class="value" valueClass="string">default</value>
+        </argument>
+        <argument id="webBrowser"/>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" guid="2b6134cf-4027-4377-b1f4-3a138806629e" name="StepGroup" testItemId="7" title="Read Excel">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Read Excel</value>
+        </argument>
+      </arguments>
+      <parameterValueSources>
+        <parameterValueSource variableName="ExcelData" variableScope="Test">
+          <cacheToken>C:/Users/CP_LPT-91/Provar/Mukhesh-WS/TrialGuide/templates/Contact_ProvarDemo.xlsx;1710440053887</cacheToken>
+          <cachedParameters>
+            <apiParam name="LastName"/>
+            <apiParam name="WorkLocation"/>
+            <apiParam name="MartialStatus"/>
+            <apiParam name="AppLauncherSearch"/>
+            <apiParam name="OfficialEmail"/>
+            <apiParam name="ResourceRole"/>
+            <apiParam name="ResourceManager"/>
+            <apiParam name="Account"/>
+          </cachedParameters>
+          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+            <workbookPath class="value" valueClass="string">templates/Contact_ProvarDemo.xlsx</workbookPath>
+            <worksheetName class="value"/>
+            <valuesRange class="value"/>
+          </sourceValue>
+        </parameterValueSource>
+      </parameterValueSources>
+      <clauses>
+        <clause name="hidden" testItemId="8"/>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" guid="83a07f79-c356-432f-b037-a68a5b090c11" name="ForEach" testItemId="4" title="For Each: {ExcelData}=&gt;Row">
+      <tags/>
+      <arguments>
+        <argument id="list">
+          <value class="variable">
+            <path element="ExcelData"/>
+          </value>
+        </argument>
+        <argument id="fromItem">
+          <value class="value" valueClass="decimal">1</value>
+        </argument>
+        <argument id="valueName">
+          <value class="value" valueClass="string">Row</value>
+        </argument>
+        <argument id="continueOnFailure"/>
+      </arguments>
+      <clauses>
+        <clause name="substeps" testItemId="5">
+          <steps>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" guid="02b86dbd-accf-4dad-a8c5-c0440ce1854f" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="11" title="Create Object: Contact=&gt;ContactId">
+              <arguments>
+                <argument id="objectType">
+                  <value class="value" valueClass="string">Contact</value>
+                </argument>
+                <argument id="resultIdName">
+                  <value class="value" valueClass="string">ContactId</value>
+                </argument>
+                <argument id="apexConnectionName">
+                  <value class="value" valueClass="string">GRID_QA</value>
+                </argument>
+                <argument id="assignmentRuleId"/>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+                <argument id="LastName">
+                  <value class="compound">
+                    <parts>
+                      <variable>
+                        <path element="Row"/>
+                        <path element="LastName"/>
+                      </variable>
+                      <value valueClass="string">_</value>
+                      <funcCall id="UniqueId">
+                        <argument id="length">
+                          <value class="value" valueClass="decimal">4</value>
+                        </argument>
+                        <argument id="format">
+                          <value class="variable">
+                            <path element="ALPHA"/>
+                          </value>
+                        </argument>
+                      </funcCall>
+                    </parts>
+                  </value>
+                </argument>
+                <argument id="Salutation">
+                  <value class="value" valueClass="string">Mr.</value>
+                </argument>
+                <argument id="RecordTypeId">
+                  <value class="value" valueClass="string">Resource</value>
+                </argument>
+                <argument id="ReportsToId">
+                  <value class="value" valueClass="string">003Wr00000168aGIAQ</value>
+                </argument>
+                <argument id="Email">
+                  <value class="variable">
+                    <path element="Row"/>
+                    <path element="OfficialEmail"/>
+                  </value>
+                </argument>
+                <argument id="Resource_Manager__c">
+                  <value class="variable">
+                    <path element="Row"/>
+                    <path element="ResourceManager"/>
+                  </value>
+                </argument>
+                <argument id="Resource_Role__c">
+                  <value class="variable">
+                    <path element="Row"/>
+                    <path element="ResourceRole"/>
+                  </value>
+                </argument>
+                <argument id="AccountId">
+                  <value class="variable">
+                    <path element="Row"/>
+                    <path element="Account"/>
+                  </value>
+                </argument>
+                <argument id="Marital_Status__c"/>
+                <argument id="Work_Location__c">
+                  <value class="variable">
+                    <path element="Row"/>
+                    <path element="WorkLocation"/>
+                  </value>
+                </argument>
+              </arguments>
+              <parameterGeneratorProperties>
+                <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">GRID_QA</propertyValue>
+                <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.CustomObjectName">Contact</propertyValue>
+              </parameterGeneratorProperties>
+              <generatedParameters>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Contact&amp;field=LastName" name="LastName" title="LastName"/>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Contact&amp;field=Salutation" name="Salutation" title="Salutation"/>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Contact&amp;field=RecordTypeId" name="RecordTypeId" title="RecordTypeId"/>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Contact&amp;field=ReportsToId" name="ReportsToId" title="ReportsToId"/>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Contact&amp;field=Email" name="Email" title="Email"/>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Contact&amp;field=Resource_Manager__c" name="Resource_Manager__c" title="Resource_Manager__c"/>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Contact&amp;field=Resource_Role__c" name="Resource_Role__c" title="Resource_Role__c"/>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Contact&amp;field=AccountId" name="AccountId" title="AccountId"/>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Contact&amp;field=Marital_Status__c" name="Marital_Status__c" title="Marital_Status__c"/>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Contact&amp;field=Work_Location__c" name="Work_Location__c" title="Work_Location__c"/>
+              </generatedParameters>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+  </steps>
+</testCase>

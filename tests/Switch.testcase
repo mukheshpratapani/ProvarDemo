@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase guid="853bdf02-0c25-49c6-b49a-25cc82369aa6" id="30">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" guid="12c332a0-4f18-40cc-a05e-5da1c4aed3e4" name="ApexConnect" testItemId="1" title="Salesforce Connect: GRID_QA (Test)">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">GRID_QA</value>
+        </argument>
+        <argument id="connectionId">
+          <value class="value" valueClass="id">0d952817-f00e-4884-ad36-3b0fff55f747</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">GRID_QA</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="uiApplicationName">
+          <value class="value" valueClass="string">Grid</value>
+        </argument>
+        <argument id="quickUiLogin">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="closeAllPrimaryTabs">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="reuseConnectionName"/>
+        <argument id="alreadyOpenBehaviour">
+          <value class="value" valueClass="string">Fail</value>
+        </argument>
+        <argument id="privateBrowsingMode"/>
+        <argument id="enableObjectIdLogging">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="autoCleanup"/>
+        <argument id="cleanupConnectionName"/>
+        <argument id="logFileLocation"/>
+        <argument id="username"/>
+        <argument id="password"/>
+        <argument id="securityToken"/>
+        <argument id="environment"/>
+        <argument id="lightningMode">
+          <value class="value" valueClass="string">default</value>
+        </argument>
+        <argument id="webBrowser"/>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="6f3fb3fa-3f09-47e8-b1cc-8afd0e2a338b" name="SetValues" testItemId="2" title="Set Values: Action1">
+      <arguments>
+        <argument id="values">
+          <value class="valueList" mutable="Mutable">
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">Action1</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="value" valueClass="string">Contact</value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+          </value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="ab4d1dbc-90bf-48c4-9c23-fb0820812bf4" name="SetValues" testItemId="12" title="Set Values: Action2">
+      <arguments>
+        <argument id="values">
+          <value class="valueList" mutable="Mutable">
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">Action2</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="value" valueClass="string">Goal</value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+          </value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.Switch" guid="ba6d8e78-fb3d-412a-9e7b-d129e4cad12f" name="Switch" testItemId="25" title="Switch: {$Action2}">
+      <arguments>
+        <argument id="value">
+          <value class="variable" topLevel="true">
+            <path element="Action2"/>
+          </value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="case" testItemId="26">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.SwitchCase" guid="fda2aeb2-dc9f-4551-a747-b4644316b115" name="SwitchCase" testItemId="27" title="Case: Contact">
+              <arguments>
+                <argument id="value">
+                  <value class="value" valueClass="string">Contact</value>
+                </argument>
+                <argument id="caseSensitive">
+                  <value class="value" valueClass="string">No</value>
+                </argument>
+                <argument id="alreadyMatched"/>
+                <argument id="switchValue"/>
+              </arguments>
+              <clauses>
+                <clause name="steps" testItemId="28">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" guid="dc077c0c-50f4-4e7a-844a-2375377daae9" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="29" title="Create Object: Contact=&gt;ContactId">
+                      <arguments>
+                        <argument id="objectType">
+                          <value class="value" valueClass="string">Contact</value>
+                        </argument>
+                        <argument id="resultIdName">
+                          <value class="value" valueClass="string">ContactId</value>
+                        </argument>
+                        <argument id="apexConnectionName">
+                          <value class="value" valueClass="string">GRID_QA</value>
+                        </argument>
+                        <argument id="assignmentRuleId"/>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                        <argument id="LastName">
+                          <value class="compound">
+                            <parts>
+                              <value valueClass="string">Provar_</value>
+                              <funcCall id="UniqueId">
+                                <argument id="length">
+                                  <value class="value" valueClass="decimal">5</value>
+                                </argument>
+                                <argument id="format">
+                                  <value class="variable">
+                                    <path element="ALPHA"/>
+                                  </value>
+                                </argument>
+                              </funcCall>
+                            </parts>
+                          </value>
+                        </argument>
+                        <argument id="Salutation">
+                          <value class="value" valueClass="string">Mr.</value>
+                        </argument>
+                        <argument id="Email">
+                          <value class="value" valueClass="string">mukhesh.pratapani@cloudperitus.com</value>
+                        </argument>
+                        <argument id="Work_Location__c">
+                          <value class="value" valueClass="string">a0YWr0000000K5BMAU</value>
+                        </argument>
+                        <argument id="AccountId">
+                          <value class="value" valueClass="string">001Wr0000010NaQIAU</value>
+                        </argument>
+                        <argument id="Resource_Role__c">
+                          <value class="value" valueClass="string">a0dWr0000003n4DIAQ</value>
+                        </argument>
+                        <argument id="Resource_Manager__c">
+                          <value class="value" valueClass="string">003Wr0000015zAgIAI</value>
+                        </argument>
+                      </arguments>
+                      <parameterGeneratorProperties>
+                        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">GRID_QA</propertyValue>
+                        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.CustomObjectName">Contact</propertyValue>
+                      </parameterGeneratorProperties>
+                      <generatedParameters>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Contact&amp;field=LastName" name="LastName" title="LastName"/>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Contact&amp;field=Salutation" name="Salutation" title="Salutation"/>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Contact&amp;field=Email" name="Email" title="Email"/>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Contact&amp;field=Work_Location__c" name="Work_Location__c" title="Work_Location__c"/>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Contact&amp;field=AccountId" name="AccountId" title="AccountId"/>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Contact&amp;field=Resource_Role__c" name="Resource_Role__c" title="Resource_Role__c"/>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Contact&amp;field=Resource_Manager__c" name="Resource_Manager__c" title="Resource_Manager__c"/>
+                      </generatedParameters>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.Break" guid="d8fc4a21-e112-448a-ae04-f4faee39fc80" name="Break" testItemId="30" title="Break"/>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+          </steps>
+        </clause>
+        <clause name="case" testItemId="31">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.SwitchCase" guid="dadcf016-d300-4fca-94d7-83922cbb2090" name="SwitchCase" testItemId="32" title="Case: Goal">
+              <arguments>
+                <argument id="value">
+                  <value class="value" valueClass="string">Goal</value>
+                </argument>
+                <argument id="caseSensitive">
+                  <value class="value" valueClass="string">No</value>
+                </argument>
+                <argument id="alreadyMatched"/>
+                <argument id="switchValue"/>
+              </arguments>
+              <clauses>
+                <clause name="steps" testItemId="33">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" guid="6ebd2f5e-da53-4684-8930-6dadae00d970" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="34" title="Create Object: Goal__c=&gt;GoalId">
+                      <arguments>
+                        <argument id="objectType">
+                          <value class="value" valueClass="string">Goal__c</value>
+                        </argument>
+                        <argument id="resultIdName">
+                          <value class="value" valueClass="string">GoalId</value>
+                        </argument>
+                        <argument id="apexConnectionName">
+                          <value class="value" valueClass="string">GRID_QA</value>
+                        </argument>
+                        <argument id="assignmentRuleId"/>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                        <argument id="Goal_Name__c">
+                          <value class="compound">
+                            <parts>
+                              <value valueClass="string">Test.</value>
+                              <funcCall id="UniqueId">
+                                <argument id="length">
+                                  <value class="value" valueClass="decimal">5</value>
+                                </argument>
+                              </funcCall>
+                            </parts>
+                          </value>
+                        </argument>
+                        <argument id="End_Date__c">
+                          <value class="value" valueClass="date">1710892800000</value>
+                        </argument>
+                        <argument id="Start_Date__c">
+                          <value class="value" valueClass="date">1711843200000</value>
+                        </argument>
+                        <argument id="Description__c">
+                          <value class="value" valueClass="string">test</value>
+                        </argument>
+                        <argument id="Resource__c">
+                          <value class="value" valueClass="string">003Wr00000161P5IAI</value>
+                        </argument>
+                        <argument id="Parent_Goal__c">
+                          <value class="value" valueClass="string">a0VWr0000006kPyMAI</value>
+                        </argument>
+                      </arguments>
+                      <parameterGeneratorProperties>
+                        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">GRID_QA</propertyValue>
+                        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.CustomObjectName">Goal__c</propertyValue>
+                      </parameterGeneratorProperties>
+                      <generatedParameters>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Goal__c&amp;field=Goal_Name__c" name="Goal_Name__c" title="Goal_Name__c"/>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Goal__c&amp;field=End_Date__c" name="End_Date__c" title="End_Date__c"/>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Goal__c&amp;field=Start_Date__c" name="Start_Date__c" title="Start_Date__c"/>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Goal__c&amp;field=Description__c" name="Description__c" title="Description__c"/>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Goal__c&amp;field=Resource__c" name="Resource__c" title="Resource__c"/>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Goal__c&amp;field=Parent_Goal__c" name="Parent_Goal__c" title="Parent_Goal__c"/>
+                      </generatedParameters>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.Break" guid="f2fc741f-4a93-43fb-b82b-14121421ebdd" name="Break" testItemId="35" title="Break"/>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+          </steps>
+        </clause>
+        <clause name="default" testItemId="36">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.SwitchDefault" guid="a4d58507-cf6a-4864-969b-f4547f4482ed" name="SwitchDefault" testItemId="37" title="Default">
+              <clauses>
+                <clause name="steps" testItemId="38">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="3f71b4da-79d0-4125-a38e-3456829effe8" name="SetValues" testItemId="39" title="Set Values: No_Action">
+                      <arguments>
+                        <argument id="values">
+                          <value class="valueList" mutable="Mutable">
+                            <namedValues mutable="Mutable">
+                              <namedValue name="valuePath">
+                                <value class="value" valueClass="string">No_Action</value>
+                              </namedValue>
+                              <namedValue name="value">
+                                <value class="value" valueClass="string">No Action is Selected</value>
+                              </namedValue>
+                              <namedValue name="valueScope">
+                                <value class="value" valueClass="string">Test</value>
+                              </namedValue>
+                            </namedValues>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.Switch" guid="8a3e53b6-ca0a-4b33-b116-ca215a10f971" name="Switch" testItemId="40" title="Switch: {$Action1}">
+      <arguments>
+        <argument id="value">
+          <value class="variable" topLevel="true">
+            <path element="Action1"/>
+          </value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="case" testItemId="41">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.SwitchCase" guid="f6d3b3d5-b6b2-4022-a0e9-81bd883bdbeb" name="SwitchCase" testItemId="42" title="Case: Contact">
+              <arguments>
+                <argument id="value">
+                  <value class="value" valueClass="string">Contact</value>
+                </argument>
+                <argument id="caseSensitive">
+                  <value class="value" valueClass="string">No</value>
+                </argument>
+                <argument id="alreadyMatched"/>
+                <argument id="switchValue"/>
+              </arguments>
+              <clauses>
+                <clause name="steps" testItemId="43">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" guid="598a304c-fc0b-49c1-be0f-7de23106c91d" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="44" title="Create Object: Contact=&gt;ContactId">
+                      <arguments>
+                        <argument id="objectType">
+                          <value class="value" valueClass="string">Contact</value>
+                        </argument>
+                        <argument id="resultIdName">
+                          <value class="value" valueClass="string">ContactId</value>
+                        </argument>
+                        <argument id="apexConnectionName">
+                          <value class="value" valueClass="string">GRID_QA</value>
+                        </argument>
+                        <argument id="assignmentRuleId"/>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                        <argument id="LastName">
+                          <value class="compound">
+                            <parts>
+                              <value valueClass="string">Provar_</value>
+                              <funcCall id="UniqueId">
+                                <argument id="length">
+                                  <value class="value" valueClass="decimal">5</value>
+                                </argument>
+                                <argument id="format">
+                                  <value class="variable">
+                                    <path element="ALPHA"/>
+                                  </value>
+                                </argument>
+                              </funcCall>
+                            </parts>
+                          </value>
+                        </argument>
+                        <argument id="Salutation">
+                          <value class="value" valueClass="string">Mr.</value>
+                        </argument>
+                        <argument id="Email">
+                          <value class="value" valueClass="string">mukhesh.pratapani@cloudperitus.com</value>
+                        </argument>
+                        <argument id="Work_Location__c">
+                          <value class="value" valueClass="string">a0YWr0000000K5BMAU</value>
+                        </argument>
+                        <argument id="AccountId">
+                          <value class="value" valueClass="string">001Wr0000010NaQIAU</value>
+                        </argument>
+                        <argument id="Resource_Role__c">
+                          <value class="value" valueClass="string">a0dWr0000003n4DIAQ</value>
+                        </argument>
+                        <argument id="Resource_Manager__c">
+                          <value class="value" valueClass="string">003Wr0000015zAgIAI</value>
+                        </argument>
+                      </arguments>
+                      <parameterGeneratorProperties>
+                        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">GRID_QA</propertyValue>
+                        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.CustomObjectName">Contact</propertyValue>
+                      </parameterGeneratorProperties>
+                      <generatedParameters>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Contact&amp;field=LastName" name="LastName" title="LastName"/>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Contact&amp;field=Salutation" name="Salutation" title="Salutation"/>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Contact&amp;field=Email" name="Email" title="Email"/>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Contact&amp;field=Work_Location__c" name="Work_Location__c" title="Work_Location__c"/>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Contact&amp;field=AccountId" name="AccountId" title="AccountId"/>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Contact&amp;field=Resource_Role__c" name="Resource_Role__c" title="Resource_Role__c"/>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Contact&amp;field=Resource_Manager__c" name="Resource_Manager__c" title="Resource_Manager__c"/>
+                      </generatedParameters>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.Break" guid="a59fc40e-b269-4e8c-a544-846cf6213ec3" name="Break" testItemId="45" title="Break"/>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+          </steps>
+        </clause>
+        <clause name="case" testItemId="46">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.SwitchCase" guid="69f08440-3c12-45a3-a901-6c20c0fd07d6" name="SwitchCase" testItemId="47" title="Case: Goal">
+              <arguments>
+                <argument id="value">
+                  <value class="value" valueClass="string">Goal</value>
+                </argument>
+                <argument id="caseSensitive">
+                  <value class="value" valueClass="string">No</value>
+                </argument>
+                <argument id="alreadyMatched"/>
+                <argument id="switchValue"/>
+              </arguments>
+              <clauses>
+                <clause name="steps" testItemId="48">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" guid="ced9b071-a2ca-4cce-bbaf-a776b05089df" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="49" title="Create Object: Goal__c=&gt;GoalId">
+                      <arguments>
+                        <argument id="objectType">
+                          <value class="value" valueClass="string">Goal__c</value>
+                        </argument>
+                        <argument id="resultIdName">
+                          <value class="value" valueClass="string">GoalId</value>
+                        </argument>
+                        <argument id="apexConnectionName">
+                          <value class="value" valueClass="string">GRID_QA</value>
+                        </argument>
+                        <argument id="assignmentRuleId"/>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                        <argument id="Goal_Name__c">
+                          <value class="compound">
+                            <parts>
+                              <value valueClass="string">Test.</value>
+                              <funcCall id="UniqueId">
+                                <argument id="length">
+                                  <value class="value" valueClass="decimal">5</value>
+                                </argument>
+                              </funcCall>
+                            </parts>
+                          </value>
+                        </argument>
+                        <argument id="End_Date__c">
+                          <value class="value" valueClass="date">1710892800000</value>
+                        </argument>
+                        <argument id="Start_Date__c">
+                          <value class="value" valueClass="date">1711843200000</value>
+                        </argument>
+                        <argument id="Description__c">
+                          <value class="value" valueClass="string">test</value>
+                        </argument>
+                        <argument id="Resource__c">
+                          <value class="value" valueClass="string">003Wr00000161P5IAI</value>
+                        </argument>
+                        <argument id="Parent_Goal__c">
+                          <value class="value" valueClass="string">a0jWr0000003HyoIAE</value>
+                        </argument>
+                      </arguments>
+                      <parameterGeneratorProperties>
+                        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">GRID_QA</propertyValue>
+                        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.CustomObjectName">Goal__c</propertyValue>
+                      </parameterGeneratorProperties>
+                      <generatedParameters>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Goal__c&amp;field=Goal_Name__c" name="Goal_Name__c" title="Goal_Name__c"/>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Goal__c&amp;field=End_Date__c" name="End_Date__c" title="End_Date__c"/>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Goal__c&amp;field=Start_Date__c" name="Start_Date__c" title="Start_Date__c"/>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Goal__c&amp;field=Description__c" name="Description__c" title="Description__c"/>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Goal__c&amp;field=Resource__c" name="Resource__c" title="Resource__c"/>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Goal__c&amp;field=Parent_Goal__c" name="Parent_Goal__c" title="Parent_Goal__c"/>
+                      </generatedParameters>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.Break" guid="1aa76ea0-5928-49bf-9955-7667d0c0ffcd" name="Break" testItemId="50" title="Break"/>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+          </steps>
+        </clause>
+        <clause name="default" testItemId="51">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.SwitchDefault" guid="9f811f6d-bb2a-42fb-b8d9-2414073c266c" name="SwitchDefault" testItemId="52" title="Default">
+              <clauses>
+                <clause name="steps" testItemId="53">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="ffff54c9-ed8b-4e0f-b575-32686db070f8" name="SetValues" testItemId="54" title="Set Values: No_Action">
+                      <arguments>
+                        <argument id="values">
+                          <value class="valueList" mutable="Mutable">
+                            <namedValues mutable="Mutable">
+                              <namedValue name="valuePath">
+                                <value class="value" valueClass="string">No_Action</value>
+                              </namedValue>
+                              <namedValue name="value">
+                                <value class="value" valueClass="string">No Action is Selected</value>
+                              </namedValue>
+                              <namedValue name="valueScope">
+                                <value class="value" valueClass="string">Test</value>
+                              </namedValue>
+                            </namedValues>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+  </steps>
+</testCase>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase guid="61dd4874-4310-4603-b405-5c734f27b202">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="4d1ebb2c-cf13-4b45-8460-8a08ac4b85dc" name="SetValues" testItemId="1" title="Set Values: Subject">
+      <arguments>
+        <argument id="values">
+          <value class="valueList" mutable="Mutable">
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">Subject</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="value" valueClass="string">Hi Welcome to the Provar Session</value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+          </value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="9b49c76f-8622-420b-9f11-68d906a81455" name="SetValues" testItemId="2" title="Set Values: Body">
+      <arguments>
+        <argument id="values">
+          <value class="valueList" mutable="Mutable">
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">Body</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="value" valueClass="string">Welcome to the Provar session</value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+          </value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="cb50edbc-6882-4475-b914-a360af961ad4" name="SetValues" testItemId="3" title="Set Values: Signature">
+      <arguments>
+        <argument id="values">
+          <value class="valueList" mutable="Mutable">
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">Signature</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="value" valueClass="string">Regrads,\nMukhesh Pratapani\nMobile:9966764288</value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+          </value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.messaging.SendMessage" guid="7d1ecccd-72cf-450c-b5de-5c95c1dc4b1b" name="SendMessage" testItemId="4" title="Send Message: MGmail">
+      <arguments>
+        <argument id="destinationConnectionName">
+          <value class="value" valueClass="string">MGmail</value>
+        </argument>
+        <argument id="connectionId">
+          <value class="value" valueClass="id">981409bc-208c-4ff5-8e84-80b7e4cc6617</value>
+        </argument>
+        <argument id="body">
+          <value class="variable">
+            <path element="Body"/>
+          </value>
+        </argument>
+        <argument id="payloadFormat">
+          <value class="value" valueClass="string">Auto</value>
+        </argument>
+        <argument id="attachments">
+          <value class="valueList" mutable="Mutable"/>
+        </argument>
+        <argument id="to">
+          <value class="value" valueClass="string">mukhesh.pratapani@cloudperitus.com,prasanna.bollampally@cloudperitus.com</value>
+        </argument>
+        <argument id="cc"/>
+        <argument id="bcc"/>
+        <argument id="subject">
+          <value class="variable">
+            <path element="Subject"/>
+          </value>
+        </argument>
+        <argument id="signature">
+          <value class="variable">
+            <path element="Signature"/>
+          </value>
+        </argument>
+      </arguments>
+      <generatedParameters>
+        <param group="destination" linkedToUrl="connectionParam:destinationConnectionName" mandatory="true" name="to" title="To">
+          <type>
+            <textType/>
+          </type>
+        </param>
+        <param group="destination" linkedToUrl="connectionParam:destinationConnectionName" name="cc" title="CC">
+          <type>
+            <textType/>
+          </type>
+        </param>
+        <param group="destination" linkedToUrl="connectionParam:destinationConnectionName" name="bcc" title="BCC">
+          <type>
+            <textType/>
+          </type>
+        </param>
+        <param group="payload" linkedToUrl="connectionParam:destinationConnectionName" name="subject" title="Subject">
+          <type>
+            <textType/>
+          </type>
+        </param>
+        <param group="payload" linkedToUrl="connectionParam:destinationConnectionName" name="signature" title="Signature">
+          <type>
+            <textType/>
+          </type>
+        </param>
+      </generatedParameters>
+    </apiCall>
+  </steps>
+</testCase>

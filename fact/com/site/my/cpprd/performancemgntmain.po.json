@@ -1,0 +1,43 @@
+{
+  "componentId" : "e8880445-4879-4aca-ae47-e382cc744139",
+  "name" : "/com/site/my/cpprd/performancemgntmain",
+  "tagName" : "c-performancemgntmain",
+  "qualifier" : ".[@c-performancemgntmain_performancemgntmain-host='']",
+  "parameters" : [ ],
+  "type" : "Page",
+  "pageStructureElement" : false,
+  "fieldDetailsElement" : false,
+  "elements" : [ {
+    "componentId" : "dda766b1-d0da-4ee9-99b1-1c92660750bb",
+    "type" : "component::8fbc77c0-d864-48ca-91f4-be3d693a1024",
+    "label" : "LightningTabset",
+    "properties" : [ ],
+    "parameters" : [ ],
+    "elements" : [ {
+      "type" : "content",
+      "elements" : [ {
+        "componentId" : "a4ef124d-c806-47e9-8856-216e75e9a433",
+        "type" : "component::5674045b-95dd-46c9-be75-72c7321b627d",
+        "label" : "My Metrics Tab",
+        "properties" : [ ],
+        "parameters" : [ {
+          "name" : "label",
+          "value" : "My Metrics",
+          "comparisonType" : "equals",
+          "default" : true
+        } ],
+        "elements" : [ {
+          "type" : "content",
+          "elements" : [ {
+            "componentId" : "1f17389d-3c02-404a-bf7f-90775a7c2e5a",
+            "type" : "component::027ca930-0c48-4fbc-8434-8d0ade1ea1dd",
+            "label" : "CMyMetrics",
+            "properties" : [ ],
+            "parameters" : [ ],
+            "elements" : [ ]
+          } ]
+        } ]
+      } ]
+    } ]
+  } ]
+}
